@@ -24,6 +24,15 @@ npm ci
 npm run build
 npm start
 ```
+**Windows and PowerShell.** If `npm ci` stops with `npm.ps1 cannot be loaded because running scripts is disabled on this system` (on Chinese Windows: 因为在此系统上禁止运行脚本), PowerShell's execution policy is blocking npm's `.ps1` wrapper before Node starts; Node and this project are not at fault. Run the same three commands through the `.cmd` shim instead:
+
+```sh
+npm.cmd ci
+npm.cmd run build
+npm.cmd start
+```
+
+`cmd.exe` and Git Bash accept the same commands with no suffix, so you do not need to change the execution policy. `Start-GBU-Campus.cmd` already bypasses the policy for the launcher. Every other instruction in this file applies unchanged.
 
 Open http://127.0.0.1:5190/ for the day tour or http://127.0.0.1:5190/night/ for the night game. Run all commands from the repository root; the root build packages both modes together. Rebuild after changing source files. The completed build works without internet access. Fonts, geometry, materials and sound generation are local.
 
